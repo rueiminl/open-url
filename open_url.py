@@ -14,6 +14,11 @@ class OpenUrlCommand(sublime_plugin.TextCommand):
 		if url is None:
 			url = self.selection()
 
+		# used in google internal only
+		if url.startswith("go/"):
+			webbrowser.open_new_tab("http://" + url)
+			return
+
 		# expand variables in the path
 		url = os.path.expandvars(url)
 
