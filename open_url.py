@@ -15,7 +15,7 @@ class OpenUrlCommand(sublime_plugin.TextCommand):
 			url = self.selection()
 
 		# used in google internal only
-		if url.startswith("go/"):
+		if url.startswith("go/") or url.endswith("/"):
 			webbrowser.open_new_tab("http://" + url)
 			return
 
